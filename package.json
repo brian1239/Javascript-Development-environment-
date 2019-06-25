@@ -7,17 +7,16 @@
     "version": "1.0.1",
     "description": "JavaScript development environment packages for use to build a Node.js project, obtained from: https://www.npmjs.com/search?q=",
     "scripts": {
+        "prestart": "node buildScripts/startMessage.js",
         "start": "npm-run-all --parallel open:src",
-        "prestart": "babel-node buildScripts/startMessage.js",
+        "open:src": "node buildScripts/srcServer.js",
         "localtunnel": "lt --port 3000",
-        "open:src": "babel-node buildScripts/srcServer.js",
         "share": "npm-run-all --parallel open:src localtunnel"
-
-
     },
     "author": "Cory House",
     "license": "MIT",
     "dependencies": {
+        "@babel/preset-env": "^7.4.5",
         "whatwg-fetch": "^3.0.0"
     },
     "devDependencies": {
